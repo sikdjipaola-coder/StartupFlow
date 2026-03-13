@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StartupFlow | Financez l'innovation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-50 font-sans">
+
+    <nav class="bg-white sticky top-0 z-50 shadow-sm">c
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="text-2xl font-extrabold text-blue-600 tracking-tight">StartupFlow</div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#explorer" class="text-gray-600 hover:text-blue-600 transition">Explorer</a>
+                    <a href="#how" class="text-gray-600 hover:text-blue-600 transition">Comment ça marche</a>
+                    <button id="createProjectBtn" class="bg-blue-600 text-white px-5 py-2 rounded-full font-medium hover:bg-blue-700 transition shadow-md">Lancer un projet</button>
+                    <div id="authArea" class="flex items-center space-x-3">
+                      <a id="loginBtn" href="#" class="text-blue-600 font-semibold border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50">Connexion</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <header class="relative bg-white pt-16 pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-4 text-center">
+                <h1 class="text-5xl md:text-6xl font-black text-gray-900 mb-6">
+                    Financez l'innovation <span class="text-blue-600">de demain</span>
+                </h1>
+                <p class="text-xl text-gray-500 max-w-2xl mx-auto mb-10">
+                    Rejoignez une communauté d'investisseurs et propulsez les startups les plus prometteuses vers le succès.
+                </p>
+                <div class="flex justify-center gap-4">
+                    <a href="#projets" class="bg-blue-600 text-white px-8 py-4 rounded-xl text-lg font-bold shadow-xl hover:scale-105 transition-transform">
+                        Découvrir les projets
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- Comment ça marche -->
+        <section id="how" class="max-w-7xl mx-auto px-4 mt-8">
+            <div class="bg-white rounded-2xl shadow p-8">
+                <h2 class="text-3xl font-bold mb-4">Comment ça marche</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div class="text-center p-4 cursor-pointer hover:bg-gray-50 rounded-lg transition" onclick="showHowItWorks(1)">
+                        <div class="text-4xl text-blue-600 mb-3">📝</div>
+                        <h3 class="font-bold">1. Proposer un projet</h3>
+                        <p class="text-sm text-gray-600">Créez votre projet, définissez un objectif et une description.</p>
+                    </div>
+                    <div class="text-center p-4 cursor-pointer hover:bg-gray-50 rounded-lg transition" onclick="showHowItWorks(2)">
+                        <div class="text-4xl text-blue-600 mb-3">💸</div>
+                        <h3 class="font-bold">2. Les investisseurs contribuent</h3>
+                        <p class="text-sm text-gray-600">Les utilisateurs investissent en ligne et suivent la progression.</p>
+                    </div>
+                    <div class="text-center p-4 cursor-pointer hover:bg-gray-50 rounded-lg transition" onclick="showHowItWorks(3)">
+                        <div class="text-4xl text-blue-600 mb-3">🚀</div>
+                        <h3 class="font-bold">3. Lancement</h3>
+                        <p class="text-sm text-gray-600">Si l'objectif est atteint, le projet passe à l'étape suivante.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Explorer: recherche et filtres -->
+        <section id="explorer" class="max-w-7xl mx-auto px-4 mt-8">
+          <div class="bg-white rounded-2xl shadow p-6 mb-6">
+            <div class="flex flex-col md:flex-row gap-4 md:items-center">
+              <input id="searchInput" type="search" placeholder="Rechercher un projet..." class="flex-1 border rounded px-4 py-2">
+              <select id="categoryFilter" class="border rounded px-4 py-2 w-60">
+                <option value="">Toutes catégories</option>
+              </select>
+              <button id="clearFilters" class="bg-gray-200 px-4 py-2 rounded">Réinitialiser</button>
+            </div>
+          </div>
+
+        <section id="projets" class="max-w-7xl mx-auto px-4 -mt-4">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold px-2 py-1 bg-green-100 text-green-700 rounded uppercase">Énergie</span>
+                            <span class="text-sm font-bold text-yellow-500"><i class="fas fa-star"></i> 4.8</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">EcoCharge : Solaire Mobile</h3>
+                        <p class="text-gray-600 text-sm mb-6">Réinventer la recharge nomade avec des panneaux photovoltaïques ultra-légers.</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold">
+                                <span>65 000 € <span class="text-gray-400 font-normal">/ 100k</span></span>
+                                <span class="text-blue-600">65%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1530836361253-ee2e40cbb0ed?auto=format&fit=crop&w=500" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold px-2 py-1 bg-blue-100 text-blue-700 rounded uppercase">AgriTech</span>
+                            <span class="text-sm font-bold text-yellow-500"><i class="fas fa-star"></i> 4.5</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">AgriTech : Fermes Verticales</h3>
+                        <p class="text-gray-600 text-sm mb-6">Optimisation de l'agriculture urbaine grâce à l'intelligence artificielle.</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold">
+                                <span>42 000 € <span class="text-gray-400 font-normal">/ 50k</span></span>
+                                <span class="text-blue-600">84%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 84%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl">
+                    <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=500" class="h-48 w-full object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-3">
+                            <span class="text-xs font-bold px-2 py-1 bg-purple-100 text-purple-700 rounded uppercase">Santé</span>
+                            <span class="text-sm font-bold text-yellow-500"><i class="fas fa-star"></i> 4.9</span>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-800 mb-2">MedIA : Diagnostic IA</h3>
+                        <p class="text-gray-600 text-sm mb-6">Détection précoce des maladies via une simple analyse rétinienne.</p>
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-sm font-bold">
+                                <span>120 000 € <span class="text-gray-400 font-normal">/ 150k</span></span>
+                                <span class="text-blue-600">80%</span>
+                            </div>
+                            <div class="w-full bg-gray-100 rounded-full h-2">
+                                <div class="bg-blue-600 h-2 rounded-full" style="width: 80%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <footer class="mt-20 py-10 bg-gray-900 text-gray-400 text-center text-sm">
+            <p>© 2026 StartupFlow - Plate-forme de Financement Participatif Sécurisée</p>
+        </footer>
+
+    <!-- Auth Modal - Redesigned -->
+    <div id="authModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+      <div class="bg-white rounded-2xl w-full max-w-md p-0 m-4 shadow-2xl overflow-hidden">
+        <!-- Header with gradient -->
+        <div class="bg-gradient-to-r from-blue-600 to-blue-700 p-6 text-white">
+          <h3 class="text-2xl font-bold">Bienvenue</h3>
+          <p class="text-blue-100 text-sm mt-1">Connectez-vous ou créez votre compte</p>
+        </div>
+
+        <!-- Tabs -->
+        <div class="flex border-b">
+          <button id="authTabLogin" class="flex-1 py-4 px-4 font-bold text-blue-600 border-b-2 border-blue-600 transition hover:bg-gray-50" onclick="switchAuthTab('login')">
+            <i class="fas fa-sign-in-alt mr-2"></i> Connexion
+          </button>
+          <button id="authTabRegister" class="flex-1 py-4 px-4 font-bold text-gray-600 border-b-2 border-transparent transition hover:bg-gray-50" onclick="switchAuthTab('register')">
+            <i class="fas fa-user-plus mr-2"></i> Inscription
+          </button>
+        </div>
+
+        <!-- Content -->
+        <div class="p-6">
+          <!-- Error Message -->
+          <div id="authError" class="text-red-600 text-sm mb-4 p-3 bg-red-50 rounded hidden flex items-center gap-2">
+            <i class="fas fa-exclamation-circle"></i>
+            <span id="authErrorText"></span>
+          </div>
+
+          <!-- Login Form -->
+          <form id="loginForm" class="space-y-4">
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-2">
+                <i class="fas fa-envelope text-blue-600 mr-2"></i> Email
+              </label>
+              <input id="authEmail" type="email" class="w-full border-2 rounded-lg p-3 focus:outline-none focus:border-blue-600 transition" placeholder="votre@email.com" required>
+              <p id="emailError" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-2">
+                <i class="fas fa-lock text-blue-600 mr-2"></i> Mot de passe
+              </label>
+              <div class="relative">
+                <input id="authPasswordLogin" type="password" class="w-full border-2 rounded-lg p-3 focus:outline-none focus:border-blue-600 transition" placeholder="Minimum 6 caractères" required>
+                <button type="button" onclick="togglePasswordVisibility('authPasswordLogin')" class="absolute right-3 top-3 text-gray-600 hover:text-blue-600">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <p id="passwordLoginError" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+            <button type="button" id="doLogin" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-bold hover:shadow-lg transition">
+              <i class="fas fa-sign-in-alt mr-2"></i> Se connecter
+            </button>
+          </form>
+
+          <!-- Register Form -->
+          <form id="registerForm" class="space-y-4 hidden">
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-2">
+                <i class="fas fa-user text-blue-600 mr-2"></i> Nom complet
+              </label>
+              <input id="authName" type="text" class="w-full border-2 rounded-lg p-3 focus:outline-none focus:border-blue-600 transition" placeholder="Votre nom" required>
+              <p id="nameError" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-2">
+                <i class="fas fa-envelope text-blue-600 mr-2"></i> Email
+              </label>
+              <input id="authEmailRegister" type="email" class="w-full border-2 rounded-lg p-3 focus:outline-none focus:border-blue-600 transition" placeholder="votre@email.com" required>
+              <p id="emailRegisterError" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+            <div>
+              <label class="block text-sm font-bold text-gray-700 mb-2">
+                <i class="fas fa-lock text-blue-600 mr-2"></i> Mot de passe
+              </label>
+              <div class="relative">
+                <input id="authPasswordRegister" type="password" class="w-full border-2 rounded-lg p-3 focus:outline-none focus:border-blue-600 transition" placeholder="Minimum 6 caractères" required>
+                <button type="button" onclick="togglePasswordVisibility('authPasswordRegister')" class="absolute right-3 top-3 text-gray-600 hover:text-blue-600">
+                  <i class="fas fa-eye"></i>
+                </button>
+              </div>
+              <div class="mt-2">
+                <div class="flex items-center gap-2">
+                  <div id="strengthBar" class="flex-1 h-2 bg-gray-200 rounded-full overflow-hidden">
+                    <div id="strengthFill" class="h-full w-0 bg-red-500 transition-all"></div>
+                  </div>
+                  <span id="strengthText" class="text-xs font-bold text-red-500">Faible</span>
+                </div>
+              </div>
+              <p id="passwordRegisterError" class="text-red-500 text-xs mt-1 hidden"></p>
+            </div>
+            <div class="flex items-center gap-2">
+              <input id="agreeTerms" type="checkbox" class="rounded" required>
+              <label class="text-sm text-gray-600">
+                <i class="fas fa-check text-blue-600 mr-1"></i>
+                J'accepte les <a href="#" class="text-blue-600 hover:underline">conditions d'utilisation</a>
+              </label>
+            </div>
+            <button type="button" id="doRegister" class="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white py-3 rounded-lg font-bold hover:shadow-lg transition">
+              <i class="fas fa-user-plus mr-2"></i> Créer mon compte
+            </button>
+          </form>
+
+          <!-- Footer -->
+          <div class="mt-4 text-center text-sm text-gray-600">
+            <a href="#" class="text-blue-600 hover:underline">Mot de passe oublié?</a>
+          </div>
+        </div>
+
+        <!-- Close Button -->
+        <button onclick="hideAuthModal()" class="absolute top-4 right-4 text-gray-400 hover:text-gray-600 text-2xl">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Create Project Modal -->
+    <div id="createModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+      <div class="bg-white rounded-lg w-full max-w-lg p-6">
+        <h3 class="text-xl font-bold mb-4">Lancer un projet</h3>
+        <div id="createError" class="text-red-600 text-sm mb-2 hidden"></div>
+        <input id="projTitle" class="w-full border rounded p-2 mb-2" placeholder="Titre">
+        <input id="projCategory" class="w-full border rounded p-2 mb-2" placeholder="Catégorie">
+        <textarea id="projDescription" class="w-full border rounded p-2 mb-2" placeholder="Description"></textarea>
+        <input id="projGoal" class="w-full border rounded p-2 mb-4" placeholder="Objectif (ex: 100000)">
+        <div class="flex justify-between">
+          <button id="createProjectSubmit" class="bg-blue-600 text-white px-4 py-2 rounded">Créer</button>
+          <button id="closeCreate" class="text-gray-500">Fermer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Project Details Modal -->
+    <div id="projectDetailsModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+      <div class="bg-white rounded-lg w-full max-w-2xl p-6 m-4">
+        <div class="flex justify-between items-start mb-4">
+          <h2 id="detailTitle" class="text-2xl font-bold"></h2>
+          <button onclick="hideProjectDetails()" class="text-gray-500 text-2xl">&times;</button>
+        </div>
+        <div id="detailCategoryBadge" class="mb-4"></div>
+        <img id="detailImage" src="" class="w-full h-64 object-cover rounded mb-4">
+        <p id="detailDescription" class="text-gray-600 mb-4"></p>
+        <div class="bg-gray-50 p-4 rounded mb-4">
+          <h3 class="font-bold mb-2">Objectif de financement</h3>
+          <div class="flex justify-between text-sm font-bold mb-2">
+            <span id="detailAmount" class="text-blue-600"></span>
+            <span id="detailPercentage" class="text-gray-600"></span>
+          </div>
+          <div class="w-full bg-gray-200 rounded-full h-3">
+            <div id="detailProgressBar" class="bg-blue-600 h-3 rounded-full"></div>
+          </div>
+        </div>
+        <div class="flex gap-2">
+          <button id="detailInvestBtn" class="flex-1 bg-green-600 text-white px-4 py-3 rounded font-bold hover:bg-green-700">Investir maintenant</button>
+          <button onclick="hideProjectDetails()" class="flex-1 bg-gray-200 px-4 py-3 rounded font-bold">Fermer</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- How It Works Modal -->
+    <div id="howItWorksModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 overflow-y-auto">
+      <div class="bg-white rounded-lg w-full max-w-2xl p-6 m-4">
+        <div class="flex justify-between items-start mb-4">
+          <h2 id="howTitle" class="text-2xl font-bold"></h2>
+          <button onclick="hideHowItWorks()" class="text-gray-500 text-2xl">&times;</button>
+        </div>
+        <div id="howIcon" class="text-6xl text-blue-600 mb-4"></div>
+        <p id="howDescription" class="text-gray-600 mb-6 text-lg"></p>
+        <div class="bg-blue-50 border-l-4 border-blue-600 p-4 mb-4">
+          <h3 class="font-bold text-blue-900 mb-2">Conseils pratiques</h3>
+          <ul id="howTips" class="text-sm text-blue-800 space-y-2"></ul>
+        </div>
+        <div class="flex gap-2">
+          <button id="howActionBtn" class="flex-1 bg-blue-600 text-white px-4 py-3 rounded font-bold hover:bg-blue-700"></button>
+          <button onclick="hideHowItWorks()" class="flex-1 bg-gray-200 px-4 py-3 rounded font-bold">Fermer</button>
+        </div>
+      </div>
+    </div>
+
+    <script>
+    const API = 'http://localhost:3000';
+    let backendAvailable = false;
+    
+    function getToken(){ return localStorage.getItem('sf_token'); }
+    function setToken(t){ localStorage.setItem('sf_token', t); }
+    function clearToken(){ localStorage.removeItem('sf_token'); }
+
+    // Vérifier que le backend est joignable (avec timeout)
+    async function checkBackend(){
+      try {
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 3000);
+        const res = await fetch(`${API}/test`, { method: 'GET', signal: controller.signal });
+        clearTimeout(timeoutId);
+        if(res.ok) { backendAvailable = true; return; }
+      } catch(e) {
+        console.error('Backend check failed:', e.message);
+      }
+      // Backend not available - afficher un toast (pas remplacer toute la page)
+      showToast('⚠️ Attention: Le backend n\'est pas joignable. Assure-toi que la fenêtre "npm run dev" est ouverte. Pour relancer: double-clique sur start.bat', 'error');
+    }
+
+    // Toast helper
+    function showToast(msg, type='info'){
+      let container = document.getElementById('toastContainer');
+      if(!container){
+        container = document.createElement('div'); container.id='toastContainer';
+        Object.assign(container.style,{position:'fixed',right:'20px',top:'20px',zIndex:9999});
+        document.body.appendChild(container);
+      }
+      const el = document.createElement('div');
+      el.textContent = msg;
+      Object.assign(el.style,{background: type==='error'?'#fee2e2':'#e6fffa',color:'#064e3b',padding:'10px 14px',borderRadius:'8px',marginTop:'8px',boxShadow:'0 2px 8px rgba(0,0,0,0.08)'});
+      container.appendChild(el);
+      setTimeout(()=> el.remove(), 4000);
+    }
+
+    function updateAuthUI(){
+      const authArea = document.getElementById('authArea');
+      const token = getToken();
+      if(!authArea) return;
+      if(token){
+        authArea.innerHTML = `<span id="userEmail" class="text-sm text-gray-700"></span><button id="logoutBtn" class="ml-3 text-red-600 border px-3 py-1 rounded">Se déconnecter</button>`;
+        document.getElementById('logoutBtn').addEventListener('click', ()=>{ clearToken(); updateAuthUI(); showToast('Déconnecté'); });
+        try{ const payload = JSON.parse(atob(token.split('.')[1])); document.getElementById('userEmail').textContent = payload.email; }catch(e){}
+      } else {
+        authArea.innerHTML = `<a id="loginBtn" href="#" class="text-blue-600 font-semibold border border-blue-600 px-5 py-2 rounded-full hover:bg-blue-50">Connexion</a>`;
+        document.getElementById('loginBtn').addEventListener('click', (e)=>{ e.preventDefault(); showAuthModal(); });
+      }
+    }
+
+    // validators
+    function validEmail(e){ return /^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(e); }
+    function validPassword(p){ return typeof p==='string' && p.length >= 6; }
+    function validProject(title, goal){ return title && title.trim().length>2 && !isNaN(goal) && goal>0; }
+
+    // Password strength indicator
+    function checkPasswordStrength(password) {
+      let strength = 0;
+      let text = 'Très faible';
+      let color = 'bg-red-500';
+
+      if (password.length >= 6) strength++;
+      if (password.length >= 10) strength++;
+      if (/[a-z]/.test(password) && /[A-Z]/.test(password)) strength++;
+      if (/\d/.test(password)) strength++;
+      if (/[^a-zA-Z0-9]/.test(password)) strength++;
+
+      if (strength <= 1) { text = 'Faible'; color = 'bg-red-500'; }
+      else if (strength === 2) { text = 'Moyen'; color = 'bg-yellow-500'; }
+      else if (strength === 3) { text = 'Bon'; color = 'bg-green-400'; }
+      else { text = 'Très bon'; color = 'bg-green-600'; }
+
+      document.getElementById('strengthFill').style.width = (strength * 20) + '%';
+      document.getElementById('strengthFill').className = 'h-full transition-all ' + color;
+      document.getElementById('strengthText').textContent = text;
+      document.getElementById('strengthText').className = 'text-xs font-bold ' + (color.includes('red') ? 'text-red-500' : color.includes('yellow') ? 'text-yellow-500' : 'text-green-600');
+    }
+
+    // Toggle password visibility
+    function togglePasswordVisibility(inputId) {
+      const input = document.getElementById(inputId);
+      const isPassword = input.type === 'password';
+      input.type = isPassword ? 'text' : 'password';
+      event.target.classList.toggle('fa-eye');
+      event.target.classList.toggle('fa-eye-slash');
+    }
+
+    // Switch auth tabs
+    function switchAuthTab(tab) {
+      const loginForm = document.getElementById('loginForm');
+      const registerForm = document.getElementById('registerForm');
+      const tabLogin = document.getElementById('authTabLogin');
+      const tabRegister = document.getElementById('authTabRegister');
+      
+      clearAuthErrors();
+
+      if (tab === 'login') {
+        loginForm.classList.remove('hidden');
+        registerForm.classList.add('hidden');
+        tabLogin.classList.add('text-blue-600', 'border-blue-600');
+        tabLogin.classList.remove('text-gray-600', 'border-transparent');
+        tabRegister.classList.remove('text-blue-600', 'border-blue-600');
+        tabRegister.classList.add('text-gray-600', 'border-transparent');
+      } else {
+        loginForm.classList.add('hidden');
+        registerForm.classList.remove('hidden');
+        tabRegister.classList.add('text-blue-600', 'border-blue-600');
+        tabRegister.classList.remove('text-gray-600', 'border-transparent');
+        tabLogin.classList.remove('text-blue-600', 'border-blue-600');
+        tabLogin.classList.add('text-gray-600', 'border-transparent');
+      }
+    }
+
+    function showAuthError(msg, field = null) {
+      const el = document.getElementById('authError');
+      document.getElementById('authErrorText').textContent = msg;
+      el.classList.remove('hidden');
+    }
+
+    function clearAuthErrors() {
+      document.getElementById('authError').classList.add('hidden');
+      document.querySelectorAll('[id$="Error"]').forEach(el => el.classList.add('hidden'));
+    }
+
+    // modal controls
+    function showAuthModal(){ document.getElementById('authModal').classList.remove('hidden'); document.getElementById('authModal').classList.add('flex'); }
+    function hideAuthModal(){ document.getElementById('authModal').classList.remove('flex'); document.getElementById('authModal').classList.add('hidden'); }
+    function showCreateModal(){ document.getElementById('createModal').classList.remove('hidden'); document.getElementById('createModal').classList.add('flex'); }
+    function hideCreateModal(){ document.getElementById('createModal').classList.remove('flex'); document.getElementById('createModal').classList.add('hidden'); }
+
+    function showAuthError(msg){ const el = document.getElementById('authError'); el.textContent = msg; el.classList.remove('hidden'); }
+    function showCreateError(msg){ const el = document.getElementById('createError'); el.textContent = msg; el.classList.remove('hidden'); }
+    function clearErrors(){ document.getElementById('authError').classList.add('hidden'); document.getElementById('createError').classList.add('hidden'); }
+
+    async function doLogin(){
+      clearAuthErrors();
+      const email = document.getElementById('authEmail').value.trim();
+      const password = document.getElementById('authPasswordLogin').value;
+      
+      if(!validEmail(email)) { 
+        showAuthError('❌ Email invalide'); 
+        return; 
+      }
+      if(!validPassword(password)) { 
+        showAuthError('❌ Mot de passe minimum 6 caractères'); 
+        return; 
+      }
+      
+      const btn = document.getElementById('doLogin'); 
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Connexion en cours...';
+      
+      try{
+        const res = await fetch(`${API}/auth/login`, { 
+          method: 'POST', 
+          headers: {'Content-Type':'application/json'}, 
+          body: JSON.stringify({ email, password }) 
+        });
+        const json = await res.json();
+        if(!res.ok){ 
+          showAuthError('❌ ' + (json.error || 'Identifiants invalides')); 
+          return; 
+        }
+        setToken(json.token); 
+        hideAuthModal(); 
+        updateAuthUI(); 
+        showToast('✅ Connexion réussie! Bienvenue ' + json.user.name);
+        document.getElementById('authEmail').value = '';
+        document.getElementById('authPasswordLogin').value = '';
+      } catch(e){ 
+        showAuthError('❌ Erreur réseau - Vérifiez votre connexion'); 
+        console.error(e);
+      }
+      finally{ 
+        btn.disabled = false; 
+        btn.innerHTML = '<i class="fas fa-sign-in-alt mr-2"></i> Se connecter';
+      }
+    }
+
+    async function doRegister(){
+      clearAuthErrors();
+      const name = document.getElementById('authName').value.trim();
+      const email = document.getElementById('authEmailRegister').value.trim();
+      const password = document.getElementById('authPasswordRegister').value;
+      const agreeTerms = document.getElementById('agreeTerms').checked;
+      
+      if(name.length < 2) { 
+        showAuthError('❌ Nom minimum 2 caractères'); 
+        return; 
+      }
+      if(!validEmail(email)) { 
+        showAuthError('❌ Email invalide'); 
+        return; 
+      }
+      if(!validPassword(password)) { 
+        showAuthError('❌ Mot de passe minimum 6 caractères'); 
+        return; 
+      }
+      if(!agreeTerms) { 
+        showAuthError('❌ Acceptez les conditions d\'utilisation'); 
+        return; 
+      }
+      
+      const btn = document.getElementById('doRegister'); 
+      btn.disabled = true;
+      btn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i> Création en cours...';
+      
+      try{
+        const res = await fetch(`${API}/auth/register`, { 
+          method: 'POST', 
+          headers: {'Content-Type':'application/json'}, 
+          body: JSON.stringify({ name, email, password }) 
+        });
+        const json = await res.json();
+        if(!res.ok){ 
+          showAuthError('❌ ' + (json.error || 'Erreur lors de l\'inscription')); 
+          return; 
+        }
+        setToken(json.token); 
+        hideAuthModal(); 
+        updateAuthUI(); 
+        showToast('✅ Compte créé avec succès! Bienvenue ' + json.user.name);
+        document.getElementById('authName').value = '';
+        document.getElementById('authEmailRegister').value = '';
+        document.getElementById('authPasswordRegister').value = '';
+        document.getElementById('agreeTerms').checked = false;
+      } catch(e){ 
+        showAuthError('❌ Erreur réseau - Vérifiez votre connexion'); 
+        console.error(e);
+      }
+      finally{ 
+        btn.disabled = false; 
+        btn.innerHTML = '<i class="fas fa-user-plus mr-2"></i> Créer mon compte';
+      }
+    }
+
+    async function createProject(){
+      clearErrors();
+      const title = document.getElementById('projTitle').value.trim();
+      const description = document.getElementById('projDescription').value.trim();
+      const goal = parseFloat(document.getElementById('projGoal').value) || 0;
+      const category = document.getElementById('projCategory').value.trim();
+      if(!validProject(title, goal)) return showCreateError('Titre valide et objectif > 0 requis');
+      const token = getToken(); if(!token) return showCreateError('Vous devez être connecté.');
+      const btn = document.getElementById('createProjectSubmit'); btn.disabled = true;
+      try{
+        const res = await fetch(`${API}/projects`, { method: 'POST', headers: {'Content-Type':'application/json','Authorization': 'Bearer '+token}, body: JSON.stringify({ title, description, goal, category }) });
+        const json = await res.json();
+        if(!res.ok) return showCreateError(json.error || 'Erreur');
+        hideCreateModal(); clearProjectForm(); loadProjects(); showToast('Projet créé (en attente)');
+      }catch(e){ showCreateError('Erreur réseau'); }
+      finally{ btn.disabled = false; }
+    }
+
+    function clearProjectForm(){
+      document.getElementById('projTitle').value = '';
+      document.getElementById('projCategory').value = '';
+      document.getElementById('projDescription').value = '';
+      document.getElementById('projGoal').value = '';
+    }
+
+    async function invest(projectId){
+      const str = prompt('Montant à investir (€)');
+      if(!str) return;
+      const amount = parseFloat(str);
+      if(isNaN(amount) || amount <= 0) return alert('Montant invalide');
+      const token = getToken();
+      if(!token) return alert('Connectez-vous pour investir');
+      try{
+        const res = await fetch(`${API}/projects/${projectId}/invest`, { method: 'POST', headers: {'Content-Type':'application/json','Authorization':'Bearer '+token}, body: JSON.stringify({ amount }) });
+        const json = await res.json();
+        if(!res.ok) return alert(json.error || 'Erreur');
+        showToast('Investissement réussi'); loadProjects();
+      }catch(e){ alert('Erreur réseau'); }
+    }
+
+    function populateCategoryFilter(projects){
+      const sel = document.getElementById('categoryFilter');
+      if(!sel) return;
+      const cats = Array.from(new Set(projects.map(p => p.category).filter(Boolean)));
+      sel.innerHTML = '<option value="">Toutes catégories</option>' + cats.map(c => `<option value="${c}">${c}</option>`).join('');
+    }
+
+    function renderProjects(list){
+      const container = document.querySelector('#projets > div');
+      if(!container) return;
+      container.innerHTML = list.map(p => {
+        const pct = p.goal ? Math.round((p.currentAmount / p.goal) * 100) : 0;
+        return `
+          <div class="bg-white rounded-2xl shadow-xl overflow-hidden border border-gray-100 transition hover:shadow-2xl cursor-pointer" onclick="showProjectDetails(${p.id})">
+              <div class="h-48 w-full bg-gray-200 flex items-center justify-center text-gray-400">Image</div>
+              <div class="p-6">
+                  <div class="flex justify-between items-center mb-3">
+                      <span class="text-xs font-bold px-2 py-1 bg-blue-100 text-blue-700 rounded uppercase">${p.category || ''}</span>
+                      <span class="text-sm font-bold text-yellow-500">★</span>
+                  </div>
+                  <h3 class="text-xl font-bold text-gray-800 mb-2">${p.title}</h3>
+                  <p class="text-gray-600 text-sm mb-6">${p.description || ''}</p>
+                  <div class="space-y-2">
+                      <div class="flex justify-between text-sm font-bold items-center">
+                          <span>${p.currentAmount} € <span class="text-gray-400 font-normal">/ ${p.goal}</span></span>
+                          <div class="flex items-center gap-2">
+                            <span class="text-blue-600">${pct}%</span>
+                            <button onclick="invest(${p.id}); event.stopPropagation();" class="bg-green-600 text-white px-3 py-1 rounded">Investir</button>
+                          </div>
+                      </div>
+                      <div class="w-full bg-gray-100 rounded-full h-2">
+                          <div class="bg-blue-600 h-2 rounded-full" style="width: ${pct}%"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function applyFilters(){
+      const q = (document.getElementById('searchInput')?.value || '').toLowerCase().trim();
+      const cat = document.getElementById('categoryFilter')?.value || '';
+      let list = (window._sf_projects || []).slice();
+      if(cat) list = list.filter(p => (p.category || '') === cat);
+      if(q) list = list.filter(p => (p.title || '').toLowerCase().includes(q) || (p.description||'').toLowerCase().includes(q));
+      renderProjects(list);
+    }
+
+    function showProjectDetails(projectId){
+      const project = (window._sf_projects || []).find(p => p.id === projectId);
+      if(!project) return;
+      
+      const pct = project.goal ? Math.round((project.currentAmount / project.goal) * 100) : 0;
+      
+      document.getElementById('detailTitle').textContent = project.title;
+      document.getElementById('detailDescription').textContent = project.description || 'Pas de description';
+      document.getElementById('detailImage').src = 'https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=500';
+      document.getElementById('detailAmount').textContent = `${project.currentAmount} € / ${project.goal} €`;
+      document.getElementById('detailPercentage').textContent = `${pct}% financé`;
+      document.getElementById('detailProgressBar').style.width = pct + '%';
+      document.getElementById('detailCategoryBadge').innerHTML = `<span class="text-xs font-bold px-2 py-1 bg-blue-100 text-blue-700 rounded uppercase">${project.category || 'Autre'}</span>`;
+      
+      document.getElementById('detailInvestBtn').onclick = () => { invest(projectId); };
+      
+      const modal = document.getElementById('projectDetailsModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function hideProjectDetails(){
+      const modal = document.getElementById('projectDetailsModal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    function showHowItWorks(step){
+      const content = {
+        1: {
+          title: '📝 Proposer un projet',
+          icon: '📝',
+          description: 'Lancez votre projet en quelques minutes. Définissez clairement votre objectif de financement, une description détaillée et choisissez une catégorie pertinente.',
+          tips: [
+            '• Soyez précis sur l\'objectif financier',
+            '• Décrivez votre innovation en détail',
+            '• Ajoutez une image attrayante pour votre projet',
+            '• Fixez une date limite réaliste'
+          ],
+          action: 'Créer mon projet'
+        },
+        2: {
+          title: '💸 Les investisseurs contribuent',
+          icon: '💸',
+          description: 'Une fois votre projet publié, les investisseurs de notre communauté peuvent contribuer. Chaque contribution rapproche votre projet de son objectif.',
+          tips: [
+            '• Engagez-vous avec les investisseurs',
+            '• Répondez aux questions rapidement',
+            '• Donnez des mises à jour régulières',
+            '• Montrez les progrès du projet'
+          ],
+          action: 'Découvrir les investisseurs'
+        },
+        3: {
+          title: '🚀 Lancement',
+          icon: '🚀',
+          description: 'Félicitations! Si votre objectif de financement est atteint, votre projet passe à l\'étape suivante. Commencez à concrétiser votre vision.',
+          tips: [
+            '• Remerciez vos investisseurs',
+            '• Communiquez clairement sur les prochaines étapes',
+            '• Mettez en place un suivi régulier',
+            '• Célébrez ce succès collectif'
+          ],
+          action: 'En savoir plus'
+        }
+      };
+
+      const data = content[step];
+      if(!data) return;
+
+      document.getElementById('howTitle').textContent = data.title;
+      document.getElementById('howIcon').textContent = data.icon;
+      document.getElementById('howDescription').textContent = data.description;
+      document.getElementById('howTips').innerHTML = data.tips.map(tip => `<li>${tip}</li>`).join('');
+      document.getElementById('howActionBtn').textContent = data.action;
+      document.getElementById('howActionBtn').onclick = () => {
+        if(step === 1) {
+          hideHowItWorks();
+          const t = getToken(); 
+          if(!t){ showAuthModal(); } 
+          else showCreateModal();
+        } else {
+          showToast('Visite la section Découvrir les projets pour voir les investisseurs', 'info');
+        }
+      };
+
+      const modal = document.getElementById('howItWorksModal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function hideHowItWorks(){
+      const modal = document.getElementById('howItWorksModal');
+      modal.classList.remove('flex');
+      modal.classList.add('hidden');
+    }
+
+    async function loadProjects(){
+      try {
+        const res = await fetch(`${API}/projects`);
+        if(!res.ok) throw new Error('Erreur réseau');
+        const projects = await res.json();
+        window._sf_projects = projects || [];
+        populateCategoryFilter(window._sf_projects);
+        renderProjects(window._sf_projects);
+      } catch (err) {
+        console.error('Impossible de charger les projets', err);
+        showToast('Impossible de charger les projets', 'error');
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', ()=>{
+      checkBackend();
+      updateAuthUI(); loadProjects();
+      
+      // Auth modal controls
+      document.getElementById('loginBtn')?.addEventListener('click', (e)=>{ e.preventDefault(); showAuthModal(); });
+      document.getElementById('doLogin')?.addEventListener('click', doLogin);
+      document.getElementById('doRegister')?.addEventListener('click', doRegister);
+      
+      // Real-time validation - Login form
+      document.getElementById('authEmail')?.addEventListener('blur', () => {
+        const email = document.getElementById('authEmail').value.trim();
+        const error = document.getElementById('emailError');
+        if (email && !validEmail(email)) {
+          error.textContent = '❌ Email invalide';
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('authPasswordLogin')?.addEventListener('input', function() {
+        const password = this.value;
+        const error = document.getElementById('passwordLoginError');
+        if (password && !validPassword(password)) {
+          error.textContent = 'Minimum 6 caractères';
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+      });
+
+      // Real-time validation - Register form
+      document.getElementById('authName')?.addEventListener('blur', () => {
+        const name = document.getElementById('authName').value.trim();
+        const error = document.getElementById('nameError');
+        if (name && name.length < 2) {
+          error.textContent = 'Minimum 2 caractères';
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('authEmailRegister')?.addEventListener('blur', () => {
+        const email = document.getElementById('authEmailRegister').value.trim();
+        const error = document.getElementById('emailRegisterError');
+        if (email && !validEmail(email)) {
+          error.textContent = 'Email invalide';
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+      });
+
+      document.getElementById('authPasswordRegister')?.addEventListener('input', function() {
+        const password = this.value;
+        const error = document.getElementById('passwordRegisterError');
+        if (password && !validPassword(password)) {
+          error.textContent = 'Minimum 6 caractères';
+          error.classList.remove('hidden');
+        } else {
+          error.classList.add('hidden');
+        }
+        checkPasswordStrength(password);
+      });
+
+      // Press Enter to submit
+      document.getElementById('authEmail')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') doLogin(); });
+      document.getElementById('authPasswordLogin')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') doLogin(); });
+      document.getElementById('authPasswordRegister')?.addEventListener('keypress', (e) => { if (e.key === 'Enter') doRegister(); });
+      
+      // Project creation
+      document.getElementById('createProjectBtn')?.addEventListener('click', ()=>{ const t = getToken(); if(!t){ showAuthModal(); } else showCreateModal(); });
+      document.getElementById('closeCreate')?.addEventListener('click', hideCreateModal);
+      document.getElementById('createProjectSubmit')?.addEventListener('click', createProject);
+      
+      // Explorer events
+      document.getElementById('searchInput')?.addEventListener('input', () => applyFilters());
+      document.getElementById('categoryFilter')?.addEventListener('change', () => applyFilters());
+      document.getElementById('clearFilters')?.addEventListener('click', ()=>{ document.getElementById('searchInput').value=''; document.getElementById('categoryFilter').value=''; applyFilters(); });
+    });
+    </script>
+
+</body>
+</html>
