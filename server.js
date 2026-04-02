@@ -1,5 +1,6 @@
 // server.js - Backend minimal pour l'application
 require('dotenv').config();
+const path = require('path');
 const express = require('express');
 const cors = require('cors');
 const bcrypt = require('bcryptjs');
@@ -20,6 +21,11 @@ app.use(express.json());
 
 const PORT = process.env.PORT || 3000;
 const JWT_SECRET = process.env.JWT_SECRET || 'change_this_secret';
+
+// --- Route front (index statique) ---
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'index.html'));
+});
 
 // --- Endpoint de test ---
 app.get('/test', (req, res) => {

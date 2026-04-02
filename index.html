@@ -328,7 +328,7 @@
     </div>
 
     <script>
-    const API = 'http://localhost:3000';
+    const API = window.location.hostname === 'localhost' ? 'http://localhost:3000' : '';
     let backendAvailable = false;
     
     function getToken(){ return localStorage.getItem('sf_token'); }
